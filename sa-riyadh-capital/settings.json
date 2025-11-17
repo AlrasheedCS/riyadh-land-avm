@@ -1,0 +1,596 @@
+{
+  "locality": {
+    "slug": "sa-riyadh-capital",
+    "name": "Riyadh Q4 2024",
+    "country": "SA",
+    "state": "01",
+    "center": {
+      "latitude": 24.7136,
+      "longitude": 46.6753
+    },
+    "currency": "SAR"
+  },
+  "data": {
+    "load": {
+      "geo_parcels": {
+        "filename": "universe.parquet",
+        "geometry": true,
+        "dupes": {
+          "subset": [
+            "key"
+          ],
+          "sort_by": [
+            [
+              "key",
+              "asc"
+            ]
+          ],
+          "drop": true
+        },
+        "load": {
+          "key": "key",
+          "parcel_id": "parcel_id",
+          "district": "district",
+          "district_normalized": "district_normalized",
+          "district_slug": "district_slug",
+          "property_type_ar": "property_type_ar",
+          "property_type_en": "property_type_en",
+          "model_group": "model_group",
+          "bldg_area_finished_sqft": [
+            "bldg_area_finished_sqft",
+            "float"
+          ],
+          "land_area_sqft": [
+            "land_area_sqft",
+            "float"
+          ],
+          "liquidity_ratio": [
+            "liquidity_ratio",
+            "float"
+          ],
+          "contract_share": [
+            "contract_share",
+            "float"
+          ],
+          "area_share": [
+            "area_share",
+            "float"
+          ],
+          "price_share": [
+            "price_share",
+            "float"
+          ],
+          "avg_price_per_m2": [
+            "avg_price_per_m2",
+            "float"
+          ],
+          "price_spread_per_m2": [
+            "price_spread_per_m2",
+            "float"
+          ],
+          "is_vacant": [
+            "is_vacant",
+            "bool",
+            "na_false"
+          ],
+          "centroid_lat": [
+            "centroid_lat",
+            "float"
+          ],
+          "centroid_lon": [
+            "centroid_lon",
+            "float"
+          ],
+          "north_of_northern_ring_flag": [
+            "north_of_northern_ring_flag",
+            "float"
+          ],
+          "submarket": [
+            "submarket",
+            "string"
+          ],
+          "dist_to_northern_ring_m": [
+            "dist_to_northern_ring_m",
+            "float"
+          ],
+          "district_avg_sale_price": [
+            "district_avg_sale_price",
+            "float"
+          ],
+          "district_median_sale_price": [
+            "district_median_sale_price",
+            "float"
+          ],
+          "district_avg_price_per_sqft": [
+            "district_avg_price_per_sqft",
+            "float"
+          ],
+          "district_sales_count": [
+            "district_sales_count",
+            "float"
+          ]
+        }
+      },
+      "sales": {
+        "filename": "sales.csv",
+        "dupes": {
+          "subset": [
+            "key_sale"
+          ],
+          "sort_by": [
+            [
+              "key_sale",
+              "asc"
+            ]
+          ],
+          "drop": false
+        },
+        "load": {
+          "key_sale": "key_sale",
+          "key": "key",
+          "district": "district",
+          "district_normalized": "district_normalized",
+          "district_slug": "district_slug",
+          "property_type_ar": "property_type_ar",
+          "property_type_en": "property_type_en",
+          "model_group": "model_group",
+          "bldg_area_finished_sqft": [
+            "bldg_area_finished_sqft",
+            "float"
+          ],
+          "sale_price": [
+            "sale_price_sar",
+            "float"
+          ],
+          "sale_price_time_adj": [
+            "sale_price_time_adj",
+            "float"
+          ],
+          "sale_date": [
+            "sale_date",
+            "datetime",
+            "%Y-%m-%d"
+          ],
+          "sale_year": [
+            "sale_year",
+            "int"
+          ],
+          "sale_month": [
+            "sale_month",
+            "int"
+          ],
+          "sale_quarter": [
+            "sale_quarter",
+            "string"
+          ],
+          "land_area_sqft": [
+            "land_area_sqft",
+            "float"
+          ],
+          "contracts_source": [
+            "contracts_source",
+            "int"
+          ],
+          "valid_sale": [
+            "valid_sale",
+            "bool",
+            "na_true"
+          ],
+          "vacant_sale": [
+            "vacant_sale",
+            "bool",
+            "na_true"
+          ],
+          "centroid_lat": [
+            "centroid_lat",
+            "float"
+          ],
+          "centroid_lon": [
+            "centroid_lon",
+            "float"
+          ],
+          "north_of_northern_ring_flag": [
+            "north_of_northern_ring_flag",
+            "float"
+          ],
+          "submarket": [
+            "submarket",
+            "string"
+          ],
+          "dist_to_northern_ring_m": [
+            "dist_to_northern_ring_m",
+            "float"
+          ],
+          "district_avg_sale_price": [
+            "district_avg_sale_price",
+            "float"
+          ],
+          "district_median_sale_price": [
+            "district_median_sale_price",
+            "float"
+          ],
+          "district_avg_price_per_sqft": [
+            "district_avg_price_per_sqft",
+            "float"
+          ],
+          "district_sales_count": [
+            "district_sales_count",
+            "float"
+          ]
+        }
+      },
+      "district_features": {
+        "filename": "district_features.csv",
+        "load": {
+          "district": "district",
+          "district_normalized": "district_normalized",
+          "property_type": "property_type",
+          "contracts": [
+            "contracts",
+            "float"
+          ],
+          "area_m2": [
+            "area_m2",
+            "float"
+          ],
+          "avg_price_per_m2": [
+            "avg_price_per_m2",
+            "float"
+          ],
+          "contract_share": [
+            "contract_share",
+            "float"
+          ],
+          "area_share": [
+            "area_share",
+            "float"
+          ],
+          "price_share": [
+            "price_share",
+            "float"
+          ],
+          "liquidity_ratio": [
+            "liquidity_ratio",
+            "float"
+          ],
+          "district_area_sq_km": [
+            "district_area_sq_km",
+            "float"
+          ]
+        }
+      }
+    },
+    "process": {
+      "merge": {
+        "universe": [
+          "geo_parcels",
+          {
+            "id": "district_features",
+            "how": "left",
+            "left_on": [
+              "district_normalized",
+              "property_type_ar"
+            ],
+            "right_on": [
+              "district_normalized",
+              "property_type"
+            ],
+            "dupes": "allow"
+          }
+        ],
+        "sales": [
+          {
+            "id": "sales",
+            "dupes": "allow"
+          },
+          {
+            "id": "district_features",
+            "how": "left",
+            "left_on": [
+              "district_normalized",
+              "property_type_ar"
+            ],
+            "right_on": [
+              "district_normalized",
+              "property_type"
+            ],
+            "dupes": "allow"
+          }
+        ]
+      },
+      "fill": {
+        "zero": [
+          "bldg_area_finished_sqft",
+          "price_spread_per_m2",
+          "contract_share",
+          "area_share",
+          "price_share",
+          "liquidity_ratio",
+          "avg_price_per_m2"
+        ]
+      }
+    }
+  },
+  "+field_classification": {
+    "+other": {
+      "+categorical": [
+        "submarket"
+      ]
+    }
+  },
+  "modeling": {
+    "metadata": {
+      "valuation_date": "2024-12-31",
+      "modeler": "Riyadh Team"
+    },
+    "model_groups": {
+      "apartment": {
+        "filter": [
+          "==",
+          "model_group",
+          "str:apartment"
+        ]
+      },
+      "villa": {
+        "filter": [
+          "==",
+          "model_group",
+          "str:villa"
+        ]
+      },
+      "residential_land": {
+        "filter": [
+          "==",
+          "model_group",
+          "str:residential_land"
+        ]
+      },
+      "commercial_land": {
+        "filter": [
+          "==",
+          "model_group",
+          "str:commercial_land"
+        ]
+      },
+      "agricultural_land": {
+        "filter": [
+          "==",
+          "model_group",
+          "str:agricultural_land"
+        ]
+      },
+      "multi_unit": {
+        "filter": [
+          "==",
+          "model_group",
+          "str:multi_unit"
+        ]
+      }
+    },
+    "instructions": {
+      "dep_var": "sale_price_time_adj",
+      "dep_var_test": "sale_price_time_adj",
+      "model_groups": [
+        "residential_land"
+      ],
+      "main": {
+        "run": [
+          "mra"
+        ]
+      },
+      "vacant": {
+        "run": [
+          "mra"
+        ]
+      },
+      "hedonic": {
+        "run": [
+          "mra"
+        ]
+      },
+      "feature_selection": {
+        "thresholds": {
+          "correlation": 0.1,
+          "vif": 10,
+          "p_value": 0.1,
+          "t_value": 2,
+          "enr_coef": 0.05,
+          "adj_r2": 0.1
+        }
+      }
+    },
+    "models": {
+      "main": {
+        "ind_vars": [
+          "land_area_sqft",
+          "contract_share",
+          "area_share",
+          "price_share",
+          "liquidity_ratio",
+          "avg_price_per_m2",
+          "north_of_northern_ring_flag",
+          "submarket",
+          "dist_to_northern_ring_m",
+          "dist_to_northern_ring_m",
+          "dist_to_northern_ring_m",
+          "district_avg_sale_price",
+          "district_median_sale_price",
+          "district_avg_price_per_sqft",
+          "district_sales_count"
+        ],
+        "mra": {
+          "ind_vars": [
+            "land_area_sqft",
+            "contract_share",
+            "area_share",
+            "price_share",
+            "liquidity_ratio",
+            "avg_price_per_m2",
+            "north_of_northern_ring_flag",
+            "submarket",
+            "dist_to_northern_ring_m",
+            "dist_to_northern_ring_m",
+            "dist_to_northern_ring_m",
+            "district_avg_sale_price",
+            "district_median_sale_price",
+            "district_avg_price_per_sqft",
+            "district_sales_count"
+          ]
+        },
+        "default": {
+          "ind_vars": [
+            "land_area_sqft",
+            "contract_share",
+            "area_share",
+            "price_share",
+            "liquidity_ratio",
+            "avg_price_per_m2",
+            "north_of_northern_ring_flag",
+            "submarket",
+            "dist_to_northern_ring_m",
+            "dist_to_northern_ring_m",
+            "dist_to_northern_ring_m",
+            "district_avg_sale_price",
+            "district_median_sale_price",
+            "district_avg_price_per_sqft",
+            "district_sales_count"
+          ],
+          "indep_vars": [
+            "land_area_sqft",
+            "contract_share",
+            "area_share",
+            "price_share",
+            "liquidity_ratio",
+            "avg_price_per_m2",
+            "north_of_northern_ring_flag",
+            "district_avg_sale_price",
+            "district_median_sale_price",
+            "district_avg_price_per_sqft",
+            "district_sales_count"
+          ]
+        }
+      },
+      "vacant": {
+        "ind_vars": [
+          "land_area_sqft",
+          "contract_share",
+          "area_share",
+          "price_share",
+          "liquidity_ratio",
+          "avg_price_per_m2",
+          "north_of_northern_ring_flag",
+          "submarket",
+          "district_avg_sale_price",
+          "district_median_sale_price",
+          "district_avg_price_per_sqft",
+          "district_sales_count"
+        ],
+        "mra": {
+          "ind_vars": [
+            "land_area_sqft",
+            "contract_share",
+            "area_share",
+            "price_share",
+            "liquidity_ratio",
+            "avg_price_per_m2",
+            "north_of_northern_ring_flag",
+            "submarket",
+            "dist_to_northern_ring_m",
+            "district_avg_sale_price",
+            "district_median_sale_price",
+            "district_avg_price_per_sqft",
+            "district_sales_count"
+          ]
+        },
+        "default": {
+          "ind_vars": [
+            "land_area_sqft",
+            "contract_share",
+            "area_share",
+            "price_share",
+            "liquidity_ratio",
+            "avg_price_per_m2",
+            "north_of_northern_ring_flag",
+            "submarket",
+            "district_avg_sale_price",
+            "district_median_sale_price",
+            "district_avg_price_per_sqft",
+            "district_sales_count"
+          ],
+          "indep_vars": [
+            "land_area_sqft",
+            "contract_share",
+            "area_share",
+            "price_share",
+            "liquidity_ratio",
+            "avg_price_per_m2",
+            "north_of_northern_ring_flag",
+            "district_avg_sale_price",
+            "district_median_sale_price",
+            "district_avg_price_per_sqft",
+            "district_sales_count"
+          ]
+        }
+      },
+      "hedonic": {
+        "ind_vars": [
+          "land_area_sqft",
+          "contract_share",
+          "area_share",
+          "price_share",
+          "liquidity_ratio",
+          "avg_price_per_m2",
+          "north_of_northern_ring_flag",
+          "district_avg_sale_price",
+          "district_median_sale_price",
+          "district_avg_price_per_sqft",
+          "district_sales_count"
+        ],
+        "mra": {
+          "ind_vars": [
+            "land_area_sqft",
+            "contract_share",
+            "area_share",
+            "price_share",
+            "liquidity_ratio",
+            "avg_price_per_m2",
+            "north_of_northern_ring_flag",
+            "district_avg_sale_price",
+            "district_median_sale_price",
+            "district_avg_price_per_sqft",
+            "district_sales_count"
+          ]
+        },
+        "default": {
+          "ind_vars": [
+            "land_area_sqft",
+            "contract_share",
+            "area_share",
+            "price_share",
+            "liquidity_ratio",
+            "avg_price_per_m2",
+            "north_of_northern_ring_flag",
+            "district_avg_sale_price",
+            "district_median_sale_price",
+            "district_avg_price_per_sqft",
+            "district_sales_count"
+          ],
+          "indep_vars": [
+            "land_area_sqft",
+            "contract_share",
+            "area_share",
+            "price_share",
+            "liquidity_ratio",
+            "avg_price_per_m2",
+            "north_of_northern_ring_flag",
+            "north_of_northern_ring_distance_km",
+            "district_avg_sale_price",
+            "district_median_sale_price",
+            "district_avg_price_per_sqft",
+            "district_sales_count"
+          ]
+        }
+      }
+    }
+  }
+}
